@@ -9,9 +9,9 @@ class PeopleListBlock {
   BehaviorSubject<PersonResponce>();
 
   getMovies() async {
-   // PersonResponce responce = await _rep.getPeople();
-   // _subject.sink.add(responce); hmmmmmmmm
-    //todo
+   PersonResponce responce = await _rep.getPeople();
+   _subject.sink.add(responce);
+
   }
 
   dispose() {

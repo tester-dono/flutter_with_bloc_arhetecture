@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_with_bloc_arhetecture/model/movie_responce.dart';
+import 'package:flutter_with_bloc_arhetecture/model/person_responce.dart';
 
 class Movierepository {
   final String apikey = "key";
@@ -25,17 +26,17 @@ class Movierepository {
     }
   }
 
-  Future <MovieResponce> getPeople() async {
+  Future <PersonResponce> getPeople() async {
     var params = {
       "api_key": apikey
     };
     try {
       Response responce = await _dio.get(
           getPopularUrl, queryParameters: params);
-      return MovieResponce.fromJson(responce.data);
+      return PersonResponce.fromJson(responce.data);
     } catch (error, stacktrace) {
       print("error");
-      return MovieResponce.withError("error");
+      return PersonResponce.withError("error");
     }
   }
 
